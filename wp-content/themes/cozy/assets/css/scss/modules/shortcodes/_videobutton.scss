@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Video Button shortcode start styles
+   ========================================================================== */
+.edgtf-video-button-play{
+	display: block;
+	position: relative;
+	color: #fff;
+
+	.edgtf-video-button-image {
+
+		display: block;
+		text-align: center;
+
+		img {
+			vertical-align: middle;
+		}
+	}
+
+	.edgtf-video-button-wrapper{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		.edgtf-video-button-wrapper-inner {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include edgtfTransform(translate(-50%, -50%));
+		}
+
+		span{
+			font-size: 60px;
+		}
+	}
+}
+
+.edgtf-video-button-title{
+	text-align: center;
+	margin-top: 20px;
+}
+/* ==========================================================================
+   Video Button shortcode end styles
+   ========================================================================== */

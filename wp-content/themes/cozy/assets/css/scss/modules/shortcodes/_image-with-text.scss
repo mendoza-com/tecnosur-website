@@ -1,0 +1,116 @@
+/* ==========================================================================
+   Image With Text shortcode start styles
+   ========================================================================== */
+.edgtf-image-with-text {
+	position: relative;
+
+	.edgtf-iwt-link {
+		position: absolute;
+		top:0;
+		left:0;
+		height: 100%;
+		width: 100%;
+		z-index: 100;
+	}
+
+	.edgtf-iwt-image-holder {
+		position: relative;
+	}
+
+	.edgtf-iwt-image {
+		@include edgtfTransition(all .45s cubic-bezier(0.49, -0.01, 0, 1));
+
+		img{
+			vertical-align: middle;
+			@include edgtfBorderRadius(4px);
+			@include edgtfTransition(all 0.4s ease .1s);
+		}
+	}
+
+
+	.edgtf-iwt-title > a {
+	    position:relative;    
+
+	    &:after {
+		    content:'';
+		    position:absolute;
+		    top:100%;
+		    left:0;
+		    width:0;
+		    height:0;
+		    border-bottom:1px solid $first-main-color;
+		    @include edgtfTransition(width .3s cubic-bezier(.27,.62,.43,1.01));
+		}
+	}
+
+	.edgtf-iwt-text-holder {
+		position: absolute;
+		top:0;
+		left:0;
+		height: 100%;
+		width:100%;
+		background-color: rgba(105,197,211,.9);
+		@include edgtfBorderRadius(4px);
+		@include edgtfTransition(all .45s cubic-bezier(0.49, -0.01, 0, 1));
+	}
+
+	.edgtf-iwt-text-table {
+		display: table;
+		@include edgtfBoxSizing(border-box);
+		height: 100%;
+		width: 100%;
+		table-layout: fixed;
+		padding-top:24px;
+	}
+
+	.edgtf-iwt-text-cell {
+		display: table-cell;
+		vertical-align: middle;
+		padding:0 20%;
+	}
+
+	.edgtf-iwt-text {
+		text-align: center;
+		color:#fff;
+	}
+
+	.edgtf-iwt-title-holder {
+		position: relative;
+		text-align: center;
+		margin-top: 29px;
+	}
+
+	&:hover {
+		.edgtf-iwt-image,
+		.edgtf-iwt-text-holder {
+			@include edgtfTransform(translateY(-10px));
+		}
+		
+		a {
+			color: $first-main-color;
+		}
+
+		.edgtf-iwt-title > a:after {
+		    width:100%;
+		}
+	}
+
+	&.shadow {
+		.edgtf-iwt-image {
+			img {
+				@include edgtfBoxShadow(0 0 10px 3px rgba(0, 0, 0, 0.06));
+			}
+		}
+
+		&:hover {
+			.edgtf-iwt-image img {
+				@include edgtfBoxShadow(0 5px 15px rgba(0, 0, 0, 0.15));
+			}
+		}
+	}
+
+}
+
+/* ==========================================================================
+   mage With Text shortcode end styles
+   ========================================================================== */

@@ -1,0 +1,738 @@
+@import 'variables';
+@import 'mixins';
+
+/* ==========================================================================
+   #Comments styles - start
+   ========================================================================== */
+
+.edgtf-comment-holder {
+	margin: 0 0 73px;
+	padding-top: 30px;
+	box-sizing: border-box;
+
+	.edgtf-comment-image {
+		display: block;
+		width: 85px;
+		height: 85px;
+		border-radius: 100%;
+		overflow: hidden;
+		float: left;
+	}
+	.edgtf-pingback-comment {
+		.edgtf-comment-text {
+			padding: 0;
+		}
+	}
+	.edgtf-comment-text {
+		padding: 0 0 0 110px;
+		min-height: 85px;
+
+		.edgtf-comment-info {
+			display: inline-block;
+			width: 100%;
+			vertical-align: middle;
+		}
+
+		.edgtf-reply-edit-holder {
+			float: right;
+		}
+
+		.replay,
+		.comment-reply-link,
+		.comment-edit-link {
+			margin-left: 10px;
+			font-family: 'Montserrat', serif;
+			text-transform: uppercase;
+			letter-spacing: 1.5px;
+			font-size: 12px;
+			line-height: 34px;
+			display: inline-block;
+			color: $first-main-color;
+			position: relative;
+			@include edgtfTransition(background-color 0.3s ease-out, color 0.3s ease-out);
+
+			&:hover {
+				color: $default-heading-color;
+			}
+		}
+		.edgtf-comment-name {
+			float: left;
+		}
+
+		.edgtf-comment-date {
+			display: block;
+			clear: both;
+			margin-bottom: 25px;
+			font-family: Montserrat, serif;
+			font-size: 12px;
+			line-height: 12px;
+		}
+	}
+
+	.edgtf-comments-closed{
+		padding-top:16px;
+	}
+
+}
+
+.comment-respond {
+	.comment-reply-title {
+		margin-bottom: 20px;
+
+		&.edgtf-comment-reply-title-registered {
+			margin-bottom: 0;
+		}
+	}
+
+	.logged-in-as {
+		padding: 0;
+		margin: 0;
+	}
+
+	.edgtf-comment-registered-user {
+		.logged-in-as {
+			margin-bottom: 20px;
+		}
+	}
+	p.form-submit {
+		margin: 0;
+		padding: 0;
+	}
+}
+.edgtf-comment-list {
+	list-style: none;
+	position: relative;
+	z-index: 150;
+	padding: 0;
+	margin: 0;
+
+	li {
+		display: inline-block;
+		position: relative;
+		width: 100%;
+
+		.edgtf-comment {
+			padding-top: 45px;
+			padding-bottom: 40px;
+			border-bottom: 2px solid #efefef;
+
+			p {
+				margin: 0;
+			}
+		}
+
+		@for $i from 2 through 10 {
+			&.depth-#{$i} .edgtf-comment {
+				padding-left: 110px * ($i - 1);
+			}
+		}
+	}
+
+	.children {
+		padding: 0 0 0 0;
+	}
+}
+
+
+
+
+%input-style{
+	width: 100%;
+	margin-bottom: 26px;
+	padding: 15px 17px;
+	border: 1px solid #ebebeb;
+	@include edgtfBorderRadius(4px);
+	outline: 0;
+	font-family: inherit;
+	font-size: 14px;
+	background-color: #fcfcfc;
+	color: $default-text-color;
+	@include edgtfBoxSizing(border-box);
+	vertical-align: middle;
+
+	&:focus{
+		border: 1px solid #d1d1d1;
+	}
+}
+
+.wpcf7-form-control{
+	&.wpcf7-text,
+	&.wpcf7-number,
+	&.wpcf7-date,
+	&.wpcf7-textarea,
+	&.wpcf7-select,
+	&.wpcf7-quiz{
+		@extend %input-style;
+	}
+}
+
+#respond textarea,
+#respond input[type='text'],
+.post-password-form input[type='password']{
+	@extend %input-style;
+}
+
+#submit_comment,
+.post-password-form input[type='submit'],
+input.wpcf7-form-control.wpcf7-submit{
+	display: inline-block;
+	width: auto;
+	height: 48px;
+	line-height: 48px;
+	padding: 0 33px;
+	border: 1px solid $first-main-color;
+	font-family: 'Montserrat', serif;
+	font-size: 12px;
+	letter-spacing: 1.5px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fff;
+	background-color: $first-main-color;
+	cursor: pointer;
+	@include edgtfTransition(all 0.15s ease-out);
+	@include edgtfBorderRadius(40px);
+
+	&:hover{
+		color: #fff;
+		background-color: $default-heading-color;
+		border-color: $default-heading-color;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+/* ==========================================================================
+   #Comments styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   #Contact Form 7 styles - start
+   ========================================================================== */
+
+div.wpcf7 img.ajax-loader {
+	display: none;
+}
+
+.edgtf-two-columns-form{
+	display:table;
+	width:100%;
+
+	.edgtf-column-inner {
+
+		vertical-align: middle;
+		display: table-cell;
+
+		&:last-child {
+			width: 1%;
+			text-align: left;
+			padding-left: 9px;
+		}
+		&:first-child {
+			padding-right: 9px;
+		}
+	}
+}
+
+.edgtf-newsletter-form {
+	.wpcf7-form-control.wpcf7-text {
+		width: 262px;
+		border: 2px solid #d7d7d7;
+		margin: 14px;
+		background-color: rgba(255, 255, 255, 0.2);
+		padding: 13px 21px;
+		@include edgtfBorderRadius(40px);
+		font-family: 'Montserrat', serif;
+
+	}
+	input.wpcf7-form-control.wpcf7-submit {
+		padding: 0 56px;
+	}
+	.ajax-loader {
+		display: none !important;
+	}
+}
+
+/* ==========================================================================
+   #Contact Form 7 styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   #Pagination styles - start
+   ========================================================================== */
+
+.edgtf-container.edgtf-container-bottom-navigation {
+
+	background-color: #f5f5f5;
+	padding: 31px 0;
+
+	.edgtf-container-inner {
+		padding: 0 !important;
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+	}
+
+}
+
+
+.edgtf-pagination-holder {
+
+	display:table;
+	table-layout:fixed;
+	width:100%;
+
+	.edgtf-pagination {
+		display:table-cell;
+		width: 100%;
+		vertical-align: middle;
+		position: relative;
+		text-align: center;
+
+		ul {
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			float: left;
+			text-align: center;
+			display: block;
+
+			a,
+			&.active span {
+				position: relative;
+				display: inline-block;
+				padding: 0 13px;
+				margin: 0;
+				vertical-align: middle;
+				text-decoration: none;
+				font-weight: 400;
+				font-size: 18px;
+				font-family: 'Montserrat', serif;
+				cursor: pointer;
+				white-space: nowrap;
+				box-sizing: content-box;
+				color: $default-heading-color;
+
+			}
+			&.active span {
+				color: #959595;
+			}
+			&.edgtf-pagination-prev,
+			&.edgtf-pagination-next,
+			&.edgtf-pagination-first-page,
+			&.edgtf-pagination-last-page
+			{
+				position: absolute;
+				a{
+					font-size: 25px;
+					padding: 0;
+				}
+			}
+
+			&.edgtf-pagination-prev {
+				left: 0;
+				span {
+					display: inline-block;
+					@include edgtfTransition(all .2s ease);
+				}
+				&:hover {
+					span {
+						@include edgtfTransform(translateX(-5px));
+					}
+				}
+				&.edgtf-pagination-prev-first {
+					left: 25px;
+				}
+			}
+			&.edgtf-pagination-first-page {
+				left: 0;
+			}
+
+			&.edgtf-pagination-next {
+				right: 0;
+				span {
+					display: inline-block;
+					@include edgtfTransition(all .2s ease);
+				}
+				&:hover {
+					span {
+						@include edgtfTransform(translateX(5px));
+					}
+				}
+				&.edgtf-pagination-next-last {
+					right: 25px;
+				}
+			}
+			&.edgtf-pagination-last-page {
+				right: 0;
+			}
+		}
+	}
+}
+
+
+/* ==========================================================================
+   #Pagination styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   #Owl Slider (Blog single, Portfolio single) - begin
+   ========================================================================== */
+/*.edgtf-owl-slider {
+
+	.owl-buttons {
+
+		.owl-prev {
+			position: absolute;
+			top: 50%;
+			@include edgtfTransform(translateY(-50%));
+			left: 2%;
+		}
+
+		.owl-next {
+			position: absolute;
+			top: 50%;
+			@include edgtfTransform(translateY(-50%));
+			right: 2%;
+		}
+
+		.edgtf-prev-icon,
+		.edgtf-next-icon {
+			display: inline-block;
+			width: 42px;
+			height: 42px;
+			@include edgtfBorderRadius(50%);
+			border: 2px solid #fff;
+			text-align: center;
+
+			i {
+				font-size: 22px;
+				line-height: 40px;
+				color: #fff;
+			}
+
+		}
+
+	}
+
+	.owl-pagination {
+		text-align: center;
+
+		.owl-page {
+			display: inline-block;
+		}
+
+		.owl-page span {
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			margin: 3px;
+			filter: Alpha(Opacity=50);
+			opacity: 0.5;
+			-webkit-border-radius: 20px;
+			-moz-border-radius: 20px;
+			border-radius: 20px;
+			background: #e3e3e3;
+		}
+
+		.owl-page.active span {
+			opacity: 1;
+		}
+
+	}
+
+}*/
+
+/* ==========================================================================
+   #Owl Slider (Blog single, Portfolio single) - end
+   ========================================================================== */
+
+/* ==========================================================================
+   #Slick Slider navigation - start
+   ========================================================================== */
+.edgtf-slick-slider{
+	opacity:0;
+	&.slick-initialized{
+		opacity:1;
+	}
+}
+.edgtf-slick-slider-navigation-style {
+
+	&:not(.edgtf-portfolio-media) .slick-list{
+		padding:10px 0;
+	}
+
+	.edgtf-slick-prev,
+	.edgtf-slick-next {
+
+		position: absolute;
+		z-index: 100;
+		top: 50%;
+		display: block;
+		padding: 0;
+		cursor: pointer;
+		border: none;
+		outline: none;
+		font-size: 40px;
+		color:#fff;
+		@include edgtfTransform(translateY(-50%))
+	}
+
+	.edgtf-slick-prev {
+		right:calc(100% + 3px);
+	}
+
+	.edgtf-slick-next {
+		left:calc(100% + 3px);
+	}
+
+	.edgtf-slick-dots {
+		text-align: center;
+		margin: 25px 0 0 0;
+		padding: 0;
+		position: absolute;
+		width: 100%;
+		top: 100%;
+
+		li {
+			width: 20px;
+			height: 5px;
+			border-radius: 5px;
+			//border: 1px solid #5e5e5e;
+			background-color: $default-text-color;
+			box-sizing: border-box;
+			display: inline-block;
+			margin: 0 8px;
+			cursor:pointer;
+			position:relative;
+
+			.edgtf-slick-dot-inner{
+				display:inline-block;
+				width:0;
+				height:5px;
+				border-radius:5px;
+				background-color:$first-main-color;
+				opacity:0;
+				@include edgtfTransition(opacity .2s ease-out, width .2s ease-out .2s, margin .2s ease-out .2s);
+				position:absolute;
+				top:0;
+				left:50%;
+			}
+
+			&.slick-active .edgtf-slick-dot-inner {
+				width:22px;
+				margin-left:-11px;
+				opacity:1;
+				@include edgtfTransition(width 0.2s ease-out,margin 0.2s ease-out);
+			}
+
+			&:first-child{
+				margin-left:0
+			}
+
+			&:last-child{
+				margin-right:0
+			}
+
+
+			button{
+				display:none;
+			}
+
+		}
+	}
+
+}
+
+/* ==========================================================================
+   #Slick Slider navigation - end
+   ========================================================================== */
+
+
+/* ==========================================================================
+   #404 styles - start
+   ========================================================================== */
+
+.edgtf-404-page{
+	padding: 0;
+}
+
+.edgtf-page-not-found{
+
+	margin: 80px 0 85px;
+	text-align: center;
+	padding: 0 20%;
+
+	.edgtf-page-not-found-top {
+		font-family: Montserrat, serif;
+		font-weight: 600;
+		font-size: 150px;
+		color: #313131;
+		line-height: 1em;
+		display: block;
+	}
+	.edgtf-separator {
+		border-color: $second-main-color;
+		border-style: solid;
+		width: 55px;
+		border-bottom-width: 3px;
+		margin-top: 13px;
+		margin-bottom: 33px;
+	}
+	h3{
+		margin-bottom: 24px;
+	}
+
+	p{
+		margin-bottom: 68px;
+		line-height: 30px;
+	}
+}
+
+/* ==========================================================================
+   #404 styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   #Back to Top styles - start
+   ========================================================================== */
+$back-to-top-size:30px;
+#edgtf-back-to-top{
+    position: fixed;
+    width:$back-to-top-size;
+    right: $back-to-top-size;
+    bottom: 65px;
+    margin: 0;
+    z-index: 10000;
+    @include edgtfTransition(opacity 0.15s ease-out, visibility 0.15s ease-out);
+    opacity: 0;
+    visibility: hidden;
+}
+#edgtf-back-to-top.off{
+    opacity: 0;
+    visibility: hidden;
+}
+    
+#edgtf-back-to-top.on{
+    opacity: 1;
+    visibility: visible;
+}
+
+#edgtf-back-to-top > span {
+	width:$back-to-top-size;
+	height: $back-to-top-size;
+	line-height:$back-to-top-size;
+	@include edgtfBorderRadius(4px);
+	text-align:center;
+    display: block;
+	color: #fff;
+    font-size:20px;
+	//background-color:#69c5d3;
+	box-sizing: border-box;
+}
+
+#edgtf-back-to-top span span {
+	display: block;
+	line-height: inherit;
+	&:before {
+		position: relative;
+		left: -1px;
+	}
+}
+
+.edgtf-front-side,
+.edgtf-back-side{
+	position: absolute;
+	width:100%;
+	height:100%;
+	-webkit-transition: -webkit-transform .2s ease;
+	transition:transform .2s ease;
+}
+$z-index:$back-to-top-size / 2;
+.edgtf-front-side {
+	background-color:$first-main-color;
+	z-index: 1;
+	#edgtf-back-to-top.off & {
+		@include edgtfTransform(rotateX(-90deg) translateZ($z-index));
+	}
+	#edgtf-back-to-top.on & {
+		@include edgtfTransform(rotateX(-0deg) translateZ($z-index));
+	}
+}
+.edgtf-back-side{
+	background-color:#1d1d1d;
+	@include edgtfTransform(rotateX(-90deg) translateZ($z-index));
+}
+
+#edgtf-back-to-top:hover {
+	.edgtf-front-side {
+		@include edgtfTransform(rotateX(90deg) translateZ($z-index));
+	}
+
+	.edgtf-back-side {
+		@include edgtfTransform(rotateX(0deg) translateZ($z-index));
+		z-index: 1;
+	}
+}
+/* ==========================================================================
+   #Back to Top styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   #Self Hosted Video styles - start
+   ========================================================================== */
+.edgtf-self-hosted-video-holder{
+	.edgtf-video-wrap{
+		.mejs-container,
+		.mejs-overlay-play{
+			height: 100% !important; /*!important because of the inline style*/
+			width: 100% !important; /*!important because of the inline style*/
+		}
+	}
+}
+
+/* ==========================================================================
+   #Self Hosted Video styles - end
+   ========================================================================== */
+
+/* ==========================================================================
+   #Screen reader text - start
+   ========================================================================== */
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+
+	&:focus {
+		background-color: #f1f1f1;
+		border-radius: 3px;
+		box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+		clip: auto !important;
+		color: #21759b;
+		display: block;
+		font-size: 14px;
+		font-size: 0.875rem;
+		font-weight: bold;
+		height: auto;
+		left: 5px;
+		line-height: normal;
+		padding: 15px 23px 14px;
+		text-decoration: none;
+		top: 5px;
+		width: auto;
+		z-index: 100000; /* Above WP toolbar. */
+	}
+
+}
+
+/* ==========================================================================
+   #Screen reader text - end
+   ========================================================================== */

@@ -1,0 +1,57 @@
+@include laptop-wide-landscape {
+    .edgtf-project-presentation.presentation-left .edgtf-pp-content-holder .edgtf-pp-text-table,
+    .edgtf-project-presentation.presentation-right .edgtf-pp-content-holder .edgtf-pp-text-table {
+        width: 70%;
+    }
+
+    .edgtf-project-presentation.presentation-left .edgtf-pp-content-holder .edgtf-pp-button,
+    .edgtf-project-presentation.presentation-right .edgtf-pp-content-holder .edgtf-pp-button {
+        bottom: 45px;
+    }
+}
+
+@media only screen and (min-width: $ipad-landscape) and (max-width: $laptop-landscape) {
+    .edgtf-project-presentation.presentation-left .edgtf-pp-content-holder .edgtf-pp-text-holder,
+    .edgtf-project-presentation.presentation-right .edgtf-pp-content-holder .edgtf-pp-text-holder {
+        padding: 50px 45px;
+    }
+
+    .edgtf-project-presentation.presentation-left .edgtf-pp-content-holder .edgtf-pp-text-table,
+    .edgtf-project-presentation.presentation-right .edgtf-pp-content-holder .edgtf-pp-text-table {
+        width: 100%;
+    }
+
+    .edgtf-project-presentation.presentation-left .edgtf-pp-content-holder .edgtf-pp-subtitle,
+    .edgtf-project-presentation.presentation-right .edgtf-pp-content-holder .edgtf-pp-subtitle {
+        margin: 25px 0 0;
+    }
+
+}
+
+@include ipad-landscape {
+    .edgtf-project-presentation.presentation-left .edgtf-pp-content-holder .edgtf-pp-text-table,
+    .edgtf-project-presentation.presentation-right .edgtf-pp-content-holder .edgtf-pp-text-table {
+        width: 57%;
+    }
+
+    .edgtf-project-presentation.presentation-left .edgtf-pp-content-holder .edgtf-pp-content-left,
+    .edgtf-project-presentation.presentation-right .edgtf-pp-content-holder .edgtf-pp-content-right {
+        width: 100%;
+        display: table;
+    }
+
+    .edgtf-project-presentation.presentation-left .edgtf-pp-content-holder .edgtf-pp-content-right,
+    .edgtf-project-presentation.presentation-right .edgtf-pp-content-holder .edgtf-pp-content-left {
+        display: block;
+        width: 100%;
+    }
+}
+
+@include phone-landscape {
+    .edgtf-project-presentation.presentation-left .edgtf-pp-content-holder .edgtf-pp-subtitle,
+    .edgtf-project-presentation.presentation-right .edgtf-pp-content-holder .edgtf-pp-subtitle,
+    .edgtf-project-presentation.presentation-left .edgtf-pp-content-holder .edgtf-pp-title,
+    .edgtf-project-presentation.presentation-right .edgtf-pp-content-holder .edgtf-pp-title {
+        display: none;
+    }
+}

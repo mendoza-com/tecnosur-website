@@ -1,0 +1,106 @@
+/**
+* Welcome Screen
+* - Force our error messages to display
+*/
+#wpbody-content {
+	.about-wrap {
+		.notice,
+		div.error {
+			display: block !important;
+		}
+	}
+}
+
+/**
+* Post Meta Box
+*/
+#wp-simple-seo.postbox {
+	background: none;
+	border: none;
+
+	button.handlediv {
+		display: none;
+	}
+	h2.hndle {
+		display: none;
+	}
+	div.inside {
+		margin: 0;
+		padding: 0;
+
+		div.panel {
+			background: #fff;
+			border-left: 1px solid #e5e5e5;
+			border-right: 1px solid #e5e5e5;	
+			border-bottom: 1px solid #e5e5e5;	
+		}
+
+		/**
+		* Hide the Meta Editor
+		*/
+		div.meta-editor {
+			display: none;
+		}
+	}
+}
+
+/**
+* Term Meta Box
+*/
+tr.wp-simple-seo {
+	/**
+	* Hide the Meta Editor
+	*/
+	div.meta-editor {
+		display: none;
+	}
+}
+
+
+/**
+* Preview
+*/
+.wp-simple-seo-preview {
+	margin: 3px 0 10px 0;
+	padding: 0 0 10px 0;
+	border-bottom: 1px solid #eee;
+
+	.title {
+		margin: 0 0 5px 0;
+		font-family: Arial, sans-serif;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 22px;
+		color: #1a0dab;
+	}
+	.url {
+		margin: 0 0 5px 0;
+		font-family: Arial, sans-serif;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16px;
+		color: #006621;
+	}
+	.description {
+		font-family: Arial, sans-serif;
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 18px;
+		color: #545454;
+	}
+
+	.count {
+		float: right;
+		height: 22px;
+		line-height: 22px;
+		font-size: 12px;
+		padding: 0 3px;
+		border-radius: 3px;
+		color: #000;
+		background: #e5e5e5;
+
+		&.alert {
+			background: red;
+		}
+	}
+}
